@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Athii | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --pink: #e9a5bd;
+        --deep-pink: #b75d80;
+        --light-pink: #fff0f5;
+        --white: #ffffff;
+        --text: #49343e;
+        --muted: #886f7b;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'DM Sans', sans-serif;
+        background: #fffafd;
+        color: var(--text);
+        line-height: 1.7;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 8%;
+        background: rgba(255, 250, 253, 0.94);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid #f8e6ee;
+        backdrop-filter: blur(12px);
+    }
+
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 27px;
+        color: var(--deep-pink);
+        font-weight: 700;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+    }
+
+    nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: var(--deep-pink);
+    }
+
+    .hero {
+        min-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 80px 20px;
+        background:
+            radial-gradient(circle at 15% 20%, #ffe4ee 0, transparent 30%),
+            radial-gradient(circle at 85% 80%, #f8ddeb 0, transparent 30%),
+            #fffafd;
+    }
+
+    .badge {
+        padding: 8px 18px;
+        border-radius: 30px;
+        background: #ffffffc9;
+        border: 1px solid #f1cada;
+        color: var(--deep-pink);
+        font-size: 13px;
+        margin-bottom: 25px;
+        animation: fadeUp 0.8s ease both;
+    }
+
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(44px, 8vw, 82px);
+        line-height: 1.15;
+        margin-bottom: 20px;
+        animation: fadeUp 0.9s ease both;
+    }
+
+    .hero h1 span {
+        color: var(--deep-pink);
+        font-style: italic;
+    }
+
+    .hero p {
+        max-width: 550px;
+        color: var(--muted);
+        font-size: 16px;
+        margin-bottom: 30px;
+        animation: fadeUp 1s ease both;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 13px 27px;
+        background: var(--deep-pink);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: 0.3s;
+        box-shadow: 0 8px 25px #d99ab64d;
+    }
+
+    .button:hover {
+        transform: translateY(-4px);
+        background: #984365;
+    }
+
+    .section {
+        padding: 85px 8%;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(32px, 5vw, 45px);
+        margin-bottom: 10px;
+    }
+
+    .section-title p {
+        color: var(--muted);
+    }
+
+    .about-card {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 40px;
+        border: 1px solid #f5dce7;
+        border-radius: 24px;
+        box-shadow: 0 12px 40px #d9a4bb18;
+        text-align: center;
+    }
+
+    .about-card p {
+        color: var(--muted);
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .card {
+        background: white;
+        border: 1px solid #f4dce6;
+        border-radius: 20px;
+        padding: 28px;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 15px 35px #d9a4bb24;
+    }
+
+    .card .icon {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    .tag {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        background: var(--light-pink);
+        color: var(--deep-pink);
+        font-size: 12px;
+    }
+
+    .skills {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        max-width: 750px;
+        margin: auto;
+    }
+
+    .skill {
+        background: white;
+        padding: 12px 22px;
+        border: 1px solid #f0cbdc;
+        border-radius: 25px;
+        color: var(--deep-pink);
+        transition: 0.3s;
+    }
+
+    .skill:hover {
+        background: var(--deep-pink);
+        color: white;
+    }
+
+    .contact-box {
+        max-width: 700px;
+        margin: auto;
+        text-align: center;
+        background: var(--light-pink);
+        padding: 45px 25px;
+        border-radius: 25px;
+    }
+
+    .contact-box p {
+        margin: 15px 0 25px;
+        color: var(--muted);
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        color: var(--muted);
+        font-size: 13px;
+        border-top: 1px solid #f5e2eb;
+    }
+
+    .dark-mode {
+        --white: #241b23;
+        --text: #fff0f5;
+        --muted: #d2b8c5;
+        --light-pink: #392532;
+        background: #211820;
+        color: var(--text);
+    }
+
+    .dark-mode nav,
+    .dark-mode .card,
+    .dark-mode .about-card {
+        background: #2b2029;
+        border-color: #523244;
+    }
+
+    .dark-mode nav a {
+        color: var(--text);
+    }
+
+    .dark-mode .hero {
+        background: radial-gradient(circle at top, #493043, #211820 70%);
+    }
+
+    .dark-mode .badge,
+    .dark-mode .skill {
+        background: #392532;
+        border-color: #674057;
+    }
+
+    .dark-mode .contact-box {
+        background: #392532;
+    }
+
+    .dark-mode footer {
+        border-color: #523244;
+    }
+
+    .dark-mode .button {
+        color: white;
+    }
+
+    .theme-toggle {
+        border: 1px solid #f0cbdc;
+        background: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 750px) {
+        nav {
+            padding: 18px 5%;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav ul {
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-size: 12px;
+        }
+
+        .grid {
+            grid-template-columns: 1fr;
+        }
+
+        .section {
+            padding: 65px 6%;
+        }
+
+        .about-card {
+            padding: 28px 20px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            scroll-behavior: auto !important;
+            animation: none !important;
+            transition: none !important;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<nav>
+    <div class="logo">Atheeka ♡</div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="theme-toggle" id="themeToggle"
+            aria-label="Toggle dark mode">☾</button>
+</nav>
+
+<section class="hero">
+    <div class="badge">✿ Welcome to my little corner of the internet</div>
+
+    <h1>Dreaming in <span>Pink.</span><br>Building in Code.</h1>
+
+    <p>
+        Hello, I'm Atheeka! An IT student exploring the world of
+        technology, creativity and web development.
+        This is my journey, one project at a time.
+    </p>
+
+    <a href="#projects" class="button">Explore My Work ↗</a>
+</section>
+
+<section class="section" id="about">
+    <div class="section-title">
+        <h2>A Little About Me</h2>
+        <p>The person behind the pixels ♡</p>
+    </div>
+
+    <div class="about-card">
+        <p>
+            I'm an Information Technology student who loves learning
+            new things, solving problems and bringing creative ideas
+            to life through technology.
+        </p>
+        <br>
+        <p>
+            My goal is to grow as a developer, build useful digital
+            experiences and keep learning every day.
+        </p>
+    </div>
+</section>
+
+<section class="section" id="education">
+    <div class="section-title">
+        <h2>My Education</h2>
+        <p>Learning today, building tomorrow 🎓</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🎓</div>
+            <h3>Higher Diploma in IT</h3>
+            <p>Learning information technology, programming and
+               software development.</p>
+            <span class="tag">Currently Studying</span>
+        </div>
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Self Learning</h3>
+            <p>Exploring web technologies and practising through
+               hands-on projects.</p>
+            <span class="tag">Always Learning</span>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌱</div>
+            <h3>Future Goals</h3>
+            <p>Improving my technical skills and preparing for
+               a career in IT.</p>
+            <span class="tag">Work in Progress</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="skills">
+    <div class="section-title">
+        <h2>My Skills</h2>
+        <p>Growing my developer toolkit 💻</p>
+    </div>
+
+    <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript — Learning</span>
+        <span class="skill">Problem Solving</span>
+        <span class="skill">Creative Thinking</span>
+        <span class="skill">Teamwork</span>
+    </div>
+</section>
+
+<section class="section" id="projects">
+    <div class="section-title">
+        <h2>Things I'm Building</h2>
+        <p>Every great developer starts somewhere ✨</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🎀</div>
+            <h3>My Portfolio</h3>
+            <p>A personal website showcasing my learning journey
+               and future projects.</p>
+            <span class="tag">HTML + CSS</span>
+        </div>
+
+        <div class="card">
+            <div class="icon">📖</div>
+            <h3>Student Hub</h3>
+            <p>A planned student platform for organising study
+               notes, tasks and learning goals.</p>
+            <span class="tag">Coming Soon</span>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h3>AI Study Buddy</h3>
+            <p>A future project idea to help students learn
+               concepts and practise questions.</p>
+            <span class="tag">Future Project</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="contact-box">
+        <h2>Let's Connect ♡</h2>
+        <p>
+            I'm learning, growing and building my future in tech.
+            Have a project idea? Let's connect!
+        </p>
+
+        <a href="mailto:YOUR_EMAIL@example.com" class="button">
+            Say Hello ✉
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>Made with ♡ and a little pink magic by Athii</p>
+    <p>© 2026 Atheeka Portfolio · Learning every day</p>
+</footer>
+
+<script>
+    const themeToggle = document.getElementById("themeToggle");
+
+    themeToggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+
+        const isDark = document.body.classList.contains("dark-mode");
+
+        themeToggle.textContent = isDark ? "☀" : "☾";
+        themeToggle.setAttribute(
+            "aria-label",
+            isDark ? "Switch to light mode" : "Switch to dark mode"
+        );
+    });
+</script>
+```
+
+</body>
+</html>
